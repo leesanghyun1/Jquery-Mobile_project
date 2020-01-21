@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>학사관리 프로그램</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <style>
+            #header,#footer{
+                background-color: skyblue;
+            }
+            .infor{
+                color: gray;
+               font-size: 12px;
+            }.sub{
+                padding: 10px; margin-bottom: 10px; border: 1px solid #bcbcbc;
+            }.con{
+                  padding: 100px; margin-bottom: 10px; border: 1px solid #bcbcbc;
+            }.sub1{
+                float: right;
+                color: gray;
+                font-size: 14px;
+            }.comment{
+                padding: 3px; margin-bottom: 10px; border: 1px solid #bcbcbc;
+            }.cop1{
+                text-align: center;
+            }.em1{
+                color:skyblue;
+            }.li_img{
+                width: 30px;
+                height: 40px;
+            }.sub_li{
+                background-color:beige;
+                padding-left: 13px;
+            }.profile{
+                height: 80px;
+                width: 70px;
+            }
+            
+        
+        </style>   
+    
+    </head>
+        
+        <body>
+            
+            <div data-role="page" id="menu_page1">
+                <div data-role="header" id="header">
+                     <a href="./login.html#login_page" data-ajax="false" class="ui-btn-right">로그아웃</a>
+                    <h1>메뉴</h1>
+                </div>
+                <div data-role="content">
+                    <div data-role="collapsible-set" data-theme="b" data-content-theme="e">
+                        <div data-role="collapsible" >
+                            <h3>공지사항</h3>
+                            <p onclick="location.href='#notice'">공지사항</p>
+                        </div>
+                        <div data-role="collapsible"  >
+                            <h3>학생관리</h3>
+                            <p onclick="location.href='#search_stu'">수강학생 조회</p>
+                            <p onclick="location.href='#grade_manage'">성적관리</p>
+                             
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>강의관리</h3>
+                            <p onclick="location.href='#class_search'">강의조회</p>
+                            <p onclick="location.href='#class_data'">강의자료실</p>
+                             
+                        </div>
+                    </div>
+                </div>
+                <div data-role="footer" data-position="fixed" id="footer">
+                    <p></p>
+                </div>
+            </div>
+            
+         <!--공지사항 -->  
+            <div data-role="page" id="notice">
+                
+                 <div data-role="panel" id="menuPanel" data-display="overlay" data-theme="a" >
+                     <img src="img/gachon.png" style="width: 150px; height: 70px;">
+                     
+                <img src="img/son.jpg" id="pro_img" style="width: 180px; height: 180px;"><p>손흥민 교수님 <br> 환영합니다.</p>
+                     <br>
+                     <h2>메뉴</h2>
+                            <div data-role="collapsible-set" data-theme="b" data-content-theme="e">
+                        <div data-role="collapsible" data-collapsed="false">
+                            <h3>공지사항</h3>
+                            <p onclick="location.href='#notice'">공지사항</p>
+                        </div>
+                        <div data-role="collapsible" >
+                            <h3>학생관리</h3>
+                            <p onclick="location.href='#search_stu'">수강학생 조회</p>
+                            <p onclick="location.href='#grade_manage'">성적관리</p>
+                             
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>강의관리</h3>
+                            <p onclick="location.href='#class_search'">강의조회</p>
+                            <p onclick="location.href='#class_data'">강의자료실</p>
+                            <!--ㄴ-->
+                        </div>
+                    </div>
+                </div>
+                <div data-role="header"  id="header"> 
+                    <a href="#menuPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">메뉴</a>
+                    
+                     <a href="./login.html#login_page" data-ajax="false" class="ui-btn-right">로그아웃</a>
+                    <h1>공지사항</h1>
+                    
+                </div>
+                <div data-role="content">
+                    <h1>공지사항</h1>
+                
+               
+                <br>
+                 <ul data-role="listview">
+                     <li>
+                        <a href="#board_n1" class="board">
+                            <div>
+                                <span style="font-weight: bolder;">등록금 분할납부 안내</span>
+                            </div>
+                            <div>
+                                <span class="infor">홍길동 | 2019-05-15 | 조회 (40)</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#board_n2" class="board">
+                            <div>
+                                <span>2019 동계 수강신청 안내</span>
+                            </div>
+                            <div>
+                                <span class="infor">홍길동 | 2019-6-06 | 조회 (42)</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#board_n3" class="board">
+                            <div>
+                                <span>2019 하계 수강신청안내</span>
+                            </div>
+                            <div>
+                                <span class="infor">홍길동 | 2019-7-22 | 조회 (32)</span>
+                            </div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#board_n3" class="board">
+                            <div>
+                                <span>2019 하계 계절학기 안내</span>
+                            </div>
+                            <div>
+                                <span class="infor">홍길동 | 2019-8-09 | 조회 (44)</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#board_n4" class="board">
+                            <div>
+                                <span>어플 오류시 확인 사항</span>
+                            </div>
+                            <div>
+                                <span class="infor">홍길동 | 2019-9-15 | 조회 (52)</span>
+                            </div>
+                        </a>
+                    </li>
+                    </ul>
+               </div>
+               <div data-role="footer" data-position="fixed" id="footer">
+
+                </div>
+            </div>
+        
+            <!--학생관리 -->    
+            <!--수강학생 조회-->
+            <div data-role="page" id="search_stu">
+                <div data-role="panel" id="menuPanel1" data-display="overlay" data-theme="a" >
+                           <h2>메뉴</h2>
+                        <div data-role="collapsible-set" data-theme="b" data-content-theme="e">
+                        <div data-role="collapsible">
+                            <h3>공지사항</h3>
+                            <p onclick="location.href='#notice'">공지사항</p>
+                        </div>
+                        <div data-role="collapsible" data-collapsed="false">
+                            <h3>학생관리</h3>
+                            <p onclick="location.href='#search_stu'">수강학생 조회</p>
+                            <p onclick="location.href='#grade_manage'">성적관리</p>
+                             
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>강의관리</h3>
+                            <p onclick="location.href='#class_search'">강의조회</p>
+                            <p onclick="location.href='#class_data'">강의자료실</p>
+                             
+                        </div>
+                    </div>
+                </div>
+                <div data-role="header" data-position="fixed" id="header">
+                     <a href="./login.html#login_page" data-ajax="false" class="ui-btn-right">로그아웃</a>
+                      <a href="#menuPanel1" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">메뉴</a>
+                    <h1>학생관리</h1>
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#search_stu" class="ui-btn-active ui-state-persist">수강학생조회</a></li>
+                            <li><a href="#grade_manage">성적관리</a></li>
+                             
+                        </ul>
+                    </div>
+                </div>
+                <div data-role="content">
+                    <h1>수강학생조회</h1>
+                
+                <div>
+                    <div data-role="fieldcontain"> 
+                    <select name="age1" id="age1" data-inline="true"> 
+                            <option value="">과목 선택</option> 
+                            <option value="num4">모바일 웹</option> <option value="num5">데이터베이스</option> <option value="num6">서버프로그래밍</option> 
+                    </select> 
+                    </div> 
+                    <input type="text"> <br>
+                    <ul data-role="listview"> 
+                        <li><a href="#"><img class="profile" src="./img/칸.png">201729302 김동하</a></li>
+                        <li><a href="#"><img class="profile" src="./img/클리드.jpg">201439303 김태민</a></li> 
+                        <li><a href="#"><img class="profile" src="./img/페이커.jpg">201560484 이상혁</a></li> 
+                        <li><a href="#"><img class="profile" src="./img/테디.jpg">201845467 박진성</a></li>
+                        <li><a href="#"><img class="profile" src="./img/에포트.jpg">201658404 이상호</a></li> 
+                    </ul> 
+                </div>
+                </div>
+              <div data-role="footer" data-position="fixed" id="footer">
+                    <p></p>
+                </div>
+            </div>
+            
+            <!--성적관리-->
+            <div data-role="page" id="grade_manage">
+                <div data-role="panel" id="menuPanel2" data-display="overlay" data-theme="a" >
+                           <h2>메뉴</h2>
+                    <div data-role="collapsible-set" data-theme="b" data-content-theme="e">
+                        <div data-role="collapsible">
+                            <h3>공지사항</h3>
+                            <p onclick="location.href='#notice'">공지사항</p>
+                        </div>
+                        <div data-role="collapsible" data-collapsed="false">
+                            <h3>학생관리</h3>
+                            <p onclick="location.href='#search_stu'">수강학생 조회</p>
+                            <p onclick="location.href='#grade_manage'">성적관리</p>
+                             
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>강의관리</h3>
+                            <p onclick="location.href='#class_search'">강의조회</p>
+                            <p onclick="location.href='#class_data'">강의자료실</p>
+                             
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-role="header" data-position="fixed" id="header">
+                    <a href="./login.html#login_page" data-ajax="false" class="ui-btn-right">로그아웃</a>
+                    <a href="#menuPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">메뉴</a>
+                    <h1>학생관리</h1>
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#search_stu" >수강학생조회</a></li>
+                            <li><a href="#grade_manage" class="ui-btn-active ui-state-persist">성적관리</a></li>
+                             
+                        </ul>
+                    </div> 
+                </div>
+                <div data-role="content">
+                    <h1>성적관리</h1>
+                    <select name="age1" id="age1" data-inline="true"> 
+                            <option value="">과목 선택</option> 
+                            <option value="num4">모바일 웹</option> <option value="num5">데이터베이스</option> <option value="num6">서버프로그래밍</option> 
+                    </select> 
+                    <table class="ui-responsive table-stripe" id="my-table1" data-mode="columntoggle" data-role="table" >
+                        <thead>
+                            <tr>
+                                <th data-priority="1">학번</th>
+                                <th>이름</th>
+                                <th data-priority="3">성별</th>
+                                <th data-priority="3">성적</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                    <th>201738293</th>
+                                    <td>김동하</td>
+                                    <td>남</td>
+                                    <td>A</td>
+                                </tr>
+                                <tr>
+                                    <th>201739303</th>
+                                    <td>김태민</td>
+                                    <td>남</td>
+                                    <td>A+</td>
+                                </tr>
+                                <tr>
+                                    <th>201723142</th>
+                                    <td>이상혁</td>
+                                    <td>남</td>
+                                    <td>B+</td>
+                                </tr>
+                                <tr>
+                                    <th>201798283</th>
+                                    <td>박진성</td>
+                                    <td>여</td>
+                                    <td>A</td>
+                                </tr>
+                                <tr>
+                                    <th>201636293</th>
+                                    <td>이상호</td>
+                                    <td>남</td>
+                                    <td>B+</td>
+                                </tr>
+                        </tbody>
+                    </table>
+                </div>
+              <div data-role="footer" data-position="fixed" id="footer">
+                    <p></p>
+              </div>
+            </div>
+        
+            
+            <!--출석현황-->
+            <div data-role="page" id="stu_manage">
+               <div data-role="panel" id="menuPanel3" data-display="overlay" data-theme="a" >
+                           <h2>메뉴</h2>
+                            <div data-role="collapsible-set" data-theme="b" data-content-theme="e">
+                        <div data-role="collapsible">
+                            <h3>공지사항</h3>
+                            <p onclick="location.href='#notice'">공지사항</p>
+                        </div>
+                        <div data-role="collapsible" data-collapsed="false">
+                            <h3>학생관리</h3>
+                            <p onclick="location.href='#search_stu'">수강학생 조회</p>
+                            <p onclick="location.href='#grade_manage'">성적관리</p>
+                             
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>강의관리</h3>
+                            <p onclick="location.href='#class_search'">강의조회</p>
+                            <p onclick="location.href='#class_data'">강의자료실</p>
+                             
+                        </div>
+                    </div>
+                </div>
+                <div data-role="header" data-position="fixed" id="header">
+                     <a href="./login.html#login_page" data-ajax="false" class="ui-btn-right">로그아웃</a>
+                   <a href="#menuPanel3" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">메뉴</a>   
+                    <h1>학생관리</h1>
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#search_stu">수강학생조회</a></li>
+                            <li><a href="#grade_manage">성적관리</a></li>
+                            <li><a href="#stu_manage" class="ui-btn-active ui-state-persist">학생상담</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div data-role="content">
+                 
+                    <h1>출석현황</h1>
+                </div>
+                <div data-role="footer" data-position="fixed" id="footer">
+                    <p></p>
+                </div>
+            </div>
+            
+            <!--강의관리 -->    
+            <!--강의조회-->
+            <div data-role="page" id="class_search">
+                <div data-role="panel" id="menuPanel4" data-display="overlay" data-theme="a" >
+                           <h2>메뉴</h2>
+                            <div data-role="collapsible-set" data-theme="b" data-content-theme="e">
+                        <div data-role="collapsible">
+                            <h3>공지사항</h3>
+                            <p onclick="location.href='#notice'">공지사항</p>
+                        </div>
+                        <div data-role="collapsible" >
+                            <h3>학생관리</h3>
+                            <p onclick="location.href='#search_stu'">수강학생 조회</p>
+                            <p onclick="location.href='#grade_manage'">성적관리</p>
+                             
+                        </div>
+                        <div data-role="collapsible"  data-collapsed="false">
+                            <h3>강의관리</h3>
+                            <p onclick="location.href='#class_search'">강의조회</p>
+                            <p onclick="location.href='#class_data'">강의자료실</p>
+                             
+                        </div>
+                    </div>
+                </div>
+                <div data-role="header" data-position="fixed" id="header">
+                     <a href="./login.html#login_page" data-ajax="false" class="ui-btn-right">로그아웃</a>
+                      <a href="#menuPanel4" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">메뉴</a>
+                    <h1>강의관리</h1>
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#class_search" class="ui-btn-active ui-state-persist">강의조회</a></li>
+                            <li><a href="#class_data">강의자료실</a></li>
+                             
+                        </ul>
+                    </div>
+                </div>
+                <div data-role="content">
+                
+                    <h1>강의조회</h1>
+                <ul data-role="listview">
+                    <li>
+                        <a href="#mo_web">
+                            <p class="ui-li-aside">2019년 2학기</p>
+                            <h3>모바일 웹 </h3>
+                            <p>시간: 월요일:09:00~11:00 , 금요일:09:00~12:00 </p>
+                            <p>강의실:
+                                <strong>월요일:IT대학-313 , 금요일:IT대학-408</strong>
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p class="ui-li-aside">2019년 2학기</p>
+                            <h3>데이터베이스</h3>
+                            <p>시간: 월요일:11:00~13:00</p>
+                            <p>강의실:
+                                <strong>IT대학-312</strong>
+                            </p>
+                           
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p class="ui-li-aside">2019년 2학기</p>
+                            <h3>서버프로그래밍</h3>
+                            <p>시간: 목요일:12:00~15:00 , 금요일:12:00~14:00</p>
+                            <p>강의실:
+                                <strong>IT대학-313</strong>
+                            </p>
+                          
+                        </a>
+                    </li>
+                </ul>    
+                    
+                    
+                </div>
+               <div data-role="footer" data-position="fixed" id="footer">
+                    <p></p>
+                </div>
+            </div>
+            <!--강의자료실-->
+            <div data-role="page" id="class_data">
+                <div data-role="panel" id="menuPanel5" data-display="overlay" data-theme="a" >
+                           <h2>메뉴</h2>
+                            <div data-role="collapsible-set" data-theme="b" data-content-theme="e">
+                        <div data-role="collapsible">
+                            <h3>공지사항</h3>
+                            <p onclick="location.href='#notice'">공지사항</p>
+                        </div>
+                        <div data-role="collapsible" >
+                            <h3>학생관리</h3>
+                            <p onclick="location.href='#search_stu'">수강학생 조회</p>
+                            <p onclick="location.href='#grade_manage'">성적관리</p>
+                             
+                        </div>
+                        <div data-role="collapsible"  data-collapsed="false">
+                            <h3>강의관리</h3>
+                            <p onclick="location.href='#class_search'">강의조회</p>
+                            <p onclick="location.href='#class_data'">강의자료실</p>
+                             
+                        </div>
+                    </div>
+                </div>
+                <div data-role="header" data-position="fixed" id="header">
+                     <a href="./login.html#login_page" data-ajax="false" class="ui-btn-right">로그아웃</a>
+                    <a href="#menuPanel5" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">메뉴</a>
+                    <h1>강의관리</h1>
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#class_search" >강의조회</a></li>
+                            <li><a href="#class_data" class="ui-btn-active ui-state-persist">강의자료실</a></li>
+                             
+                        </ul>
+                    </div>
+                </div>
+                <div data-role="content">
+                    <h1>강의자료실</h1>
+                    <select name="age1" id="age1" data-inline="true"> 
+                            <option value="">과목 선택</option> 
+                            <option value="num4">모바일 웹</option> <option value="num5">데이터베이스</option> <option value="num6">서버프로그래밍</option> 
+                    </select> 
+                    <br>  <br>  
+                    <ul data-role="listview">
+                        <li>
+                            <a href="#reg_task">1주차[9월02일 - 9월08일]</a>
+                        </li>
+                            <a href="#" class="li_img">
+                                <li data-role="listdivider" data-divider-theme="a" class="sub_li"><img src="img/pdf.png" class="li_img">Chapter1</li>
+                            </a>
+                        
+                                
+                        <li><a href="#reg_task">2주차[9월09일 - 9월15일]</a></li>
+                        <li><a href="#reg_task">3주차[9월16일 - 9월22일]</a></li>
+                             <a href="#" class="li_img">
+                                <li data-role="listdivider" data-divider-theme="a" class="sub_li"><img src="img/pdf.png" class="li_img">Chapter2</li>
+                            </a>
+                        <li><a href="#reg_task">4주차[9월23일 - 9월29일]</a></li>
+                        <li><a href="#reg_task">5주차[9월30일 - 10월6일]</a></li>
+                        <li><a href="#reg_task">6주차[10월07일 - 10월13일]</a></li>
+                             <a href="#reg_task" class="li_img">
+                                <li data-role="listdivider" data-divider-theme="a" class="sub_li"><img src="img/pdf.png" class="li_img">Chapter3</li>
+                            </a>
+                        <li><a href="#reg_task">7주차[10월14일 - 10월20일]</a></li>
+                    </ul>
+                </div>
+                <div data-role="footer" data-position="fixed" id="footer">
+                    <p></p>
+                </div>
+            </div>
+            <!--세번째-->
+            
+            <!--글 내용 -->
+            
+            
+            <div data-role="page" id="board_n1">
+                 <div data-role="panel" id="menuPanel" data-display="overlay" data-theme="a" >
+                           <h2>메뉴</h2>
+                            <div data-role="collapsible-set" data-theme="b" data-content-theme="e">
+                        <div data-role="collapsible">
+                            <h3>공지사항</h3>
+                            <p onclick="location.href='#notice'">공지사항</p>
+                        </div>
+                        <div data-role="collapsible" data-collapsed="false">
+                            <h3>학생관리</h3>
+                            <p onclick="location.href='#search_stu'">수강학생 조회</p>
+                            <p onclick="location.href='#grade_manage'">성적관리</p>
+                             
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>강의관리</h3>
+                            <p onclick="location.href='#class_search'">강의조회</p>
+                            <p onclick="location.href='#class_data'">강의자료실</p>
+                             
+                        </div>
+                    </div>
+                </div>
+                <div data-role="header"  id="header"> 
+                    <a href="#menuPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">메뉴</a>
+                    
+                     <a href="./login.html#login_page" data-ajax="false" class="ui-btn-right">로그아웃</a>
+                    <h1>공지사항</h1>
+                    
+                </div>
+                <div data-role="content">
+                    
+                    <h1>공지사항</h1>
+                    
+                    <div class="sub"> <h3>등록금 분할납부 안내</h3> </div>
+                    <div class="sub1">홍길동 | 2019-05-15 | 조회 (40)</div>    
+                    
+                    <div class="con"> 등록금 분할납부에 관한 내용</div>
+                    <a href="#notice" data-role="button">목록보기</a>
+                    
+                </div>
+                
+               <div data-role="footer" class="cop1">
+                   Copyright by
+                   <em class="em1">Gachon University</em> 
+                    ALL RIGHTS RESERVED
+                </div>
+            </div>
+            
+            <!--과제 등록 페이지-->
+            <div data-role="page" id="reg_task">
+                <div data-role="panel" id="menuPanel5" data-display="overlay" data-theme="a" >
+                           <h2>메뉴</h2>
+                            <div data-role="collapsible-set" data-theme="b" data-content-theme="e">
+                        <div data-role="collapsible">
+                            <h3>공지사항</h3>
+                            <p onclick="location.href='#notice'">공지사항</p>
+                        </div>
+                        <div data-role="collapsible" data-collapsed="false">
+                            <h3>학생관리</h3>
+                            <p onclick="location.href='#search_stu'">수강학생 조회</p>
+                            <p onclick="location.href='#grade_manage'">성적관리</p>
+                             
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>강의관리</h3>
+                            <p onclick="location.href='#class_search'">강의조회</p>
+                            <p onclick="location.href='#class_data'">강의자료실</p>
+                             
+                        </div>
+                    </div>
+                </div>
+                <div data-role="header" data-position="fixed" id="header">
+                     <a href="./login.html#login_page" data-ajax="false" class="ui-btn-right">로그아웃</a>
+                    <a href="#menuPanel5" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">메뉴</a>
+                    <h1>강의관리</h1>
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#class_search" >강의조회</a></li>
+                            <li><a href="#class_data" class="ui-btn-active ui-state-persist">강의자료실</a></li>
+                             
+                        </ul>
+                    </div>
+                </div>
+                <div data-role="content">
+                    <h1>강의자료실</h1>
+                   <span class="ui-btn  ui-corner-all fileinput-button">
+                        <span>1주차[9월02일 - 9월08일] &nbsp;&nbsp;</span>
+                        <input type="file" name="files[]" multiple data-role="none"/>
+                  </span>
+                    <br>
+                    <a href="#class_data"  data-role="button">파일 업로드</a>
+
+                </div>
+                <div data-role="footer" data-position="fixed" id="footer">
+                    <p></p>
+                </div>
+            </div>
+            
+            <!--강의계획서-->
+            <div data-role="page" id="mo_web">
+                <div data-role="panel" id="menuPanel4" data-display="overlay" data-theme="a" >
+                           <h2>메뉴</h2>
+                            <div data-role="collapsible-set" data-theme="b" data-content-theme="e">
+                        <div data-role="collapsible">
+                            <h3>공지사항</h3>
+                            <p onclick="location.href='#notice'">공지사항</p>
+                        </div>
+                        <div data-role="collapsible" data-collapsed="false">
+                            <h3>학생관리</h3>
+                            <p onclick="location.href='#search_stu'">수강학생 조회</p>
+                            <p onclick="location.href='#grade_manage'">성적관리</p>
+                             
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>강의관리</h3>
+                            <p onclick="location.href='#class_search'">강의조회</p>
+                            <p onclick="location.href='#class_data'">강의자료실</p>
+                             
+                        </div>
+                    </div>
+                </div>
+                <div data-role="header" data-position="fixed" id="header">
+                     <a href="./login.html#login_page" data-ajax="false" class="ui-btn-right">로그아웃</a>
+                      <a href="#menuPanel4" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">메뉴</a>
+                    <h1>강의관리</h1>
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#class_search" class="ui-btn-active ui-state-persist">강의조회</a></li>
+                            <li><a href="#class_data">강의자료실</a></li>
+                             
+                        </ul>
+                    </div>
+                </div>
+                <div data-role="content">
+                
+                    <h1>강의조회</h1>
+                    <a href="#class_search" data-role="button">목록보기</a>
+                    
+                    <img src="img/%EA%B0%95%EC%9D%98%EA%B3%84%ED%9A%8D%EC%84%9C.png "style="max-width:100%; max-height:auto;"> 
+                    
+                </div>
+               <div data-role="footer" data-position="fixed" id="footer">
+                    <p></p>
+                </div>
+            </div>
+            
+            
+            
+            
+
+        </body>
+    
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html>
+
+
+		<head>
+        <meta charset="utf-8"/> 
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>    
+            
+		<title>제이쿼리</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>         
+            <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+            <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+            <script src="common.js"></script>
+                <style>
+                    #header,#footer{
+                        background: skyblue;
+                    }
+                    #logo{
+                        width: 80px;
+                        height: 60px;
+                        display: block; 
+                        margin: 0px auto;
+                    }
+                    #login_bt{
+                        background-color:deepskyblue   
+                    }
+                   
+            </style>
+            <script>
+                
+            $(document).ready(function(){
+                
+                if($("#who").val()=='professor')
+                {
+                    var auth =1;
+                }
+                
+                    $('#login_bt').click(function(){ 
+                        if(auth==1){ window.location.href="./Student.html#maenu_page1";
+                        }else{ window.location.href="./menu.html#maenu_page1";
+                        }
+                    });        
+                });
+                
+            </script>
+            
+        </head>			
+		<body>
+            
+        <!-- 로그인 페이지-->
+        <div data-role="page" id="login_page" >
+            <div data-role="header" id="header">
+                <img src="./img/gachon.png" id="logo">
+            </div>
+            <div data-role="content" id="content"> 
+                <h2 style="color: gray; text-align: center">LOGIN</h2>
+                <form method="post" action="">
+                    <input type="text" id="login_id" name="login_id" placeholder="아이디">
+                    <input type="password" id="login_id" name="login_id" placeholder="비밀번호">
+                    <input type="radio" name="id_save" data-role="none">아이디 저장 <br><br>
+                    
+                    
+                    <select id="who" data-role="slider" data-theme="a"> 
+                        <option value="student" >학생</option> 
+                        <option value="professor" >교수</option> 
+                    </select>
+                    
+                    <input type="button" value="로그인" id="login_bt">
+                     </form>     
+                <a href="#search_id" style="text-align:right">아이디 /비밀번호 찾기 </a>
+                    <a href="#join_page">회원가입</a> 
+               
+            </div> 
+            <div data-role="footer" id="footer" data-position="fixed">
+                <p></p>
+            </div>
+            
+        </div> 
+            
+            <!-- 회원가입 페이지-->
+        <div data-role="page" id="join_page">
+            <div data-role="header" id="header"> 
+                <a href="#login_page">뒤로가기</a>
+                <img src="./img/gachon.png" id="logo">
+            </div>
+            <div data-role="content" id="content"> 
+                <h2 style="color: gray; text-align: center">회원가입</h2>
+                
+                    <form method="post" action="">
+                                            
+                    <label for="who">직책</label> <select name="who" id="who" data-role="slider"> <option value="student" id="stu">학생</option> <option value="professor" id="pro">교수</option> </select> 
+                        <input type="text" id="join_id" name="login_id" placeholder="아이디">
+                        <input type="password" id="join_pw" name="login_pw" placeholder="비밀번호">
+                        <input type="password" id="join_pw2" name="login_pw2" placeholder="비밀번호 확인">
+                       
+                        <input type="text" id="join_name" name="login_name" placeholder="이름">
+                        <input type="text" id="join_dep" name="login_dep" placeholder="전공">
+                        <input type="text" id="join_dep" name="login_dep" placeholder="이메일">
+                            학년 : 
+                            <input type="radio" name="syear" value="1" data-role="none">1학년 
+                            <input type="radio" name="syear" value="2" data-role="none">2학년 
+                            <input type="radio" name="syear" value="3" checked data-role="none">3학년 
+                            <input type="radio" name="syear" value="4" data-role="none">4학년<br/> 
+                            
+                        <input type="submit" value="회원가입" id="login_bt"  onclick="location.href='#login_page'">
+                   </form>
+                  
+            </div> 
+            <div data-role="footer" id="footer" data-position="fixed">
+                <p></p>
+            </div>
+            
+        </div> 
+            <!-- 아이디 찾기-->
+            <div data-role="page" id="search_id">
+            <div data-role="header" id="header"> 
+                <a href="#login_page">뒤로가기</a>
+                <img src="./img/gachon.png" id="logo">
+            </div>
+            <div data-role="content" id="content"> 
+                <h2 style="color: gray; text-align: center">회원가입</h2>
+                
+                    <form method="post" action="">
+                 <input type="text" id="join_id" name="login_id" placeholder="이메일">
+                  
+                            
+                        <input type="submit" value="이메일 전송" id="login_bt"  onclick="location.href='#login_page'">
+                   </form>
+                  
+            </div> 
+            <div data-role="footer" id="footer" data-position="fixed">
+                <p></p>
+            </div>
+            
+        </div> 
+     
+		</body>
+	
+
+</html>
